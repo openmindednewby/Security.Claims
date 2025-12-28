@@ -1,4 +1,4 @@
-# Building and Deploying OnlineMenu.Security
+# Building and Deploying Security.Claims
 
 This guide explains how to build, pack, and publish this NuGet package.
 
@@ -13,8 +13,8 @@ This guide explains how to build, pack, and publish this NuGet package.
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/OnlineMenu.Security.git
-cd OnlineMenu.Security
+git clone https://github.com/yourusername/Security.Claims.git
+cd Security.Claims
 ```
 
 ### Restore Dependencies
@@ -72,7 +72,7 @@ dotnet pack -c Release -o C:\LocalNuGet
 dotnet nuget add source C:\LocalNuGet -n LocalFeed
 
 # In your test project
-dotnet add package OnlineMenu.Security --version 1.0.0 --source LocalFeed
+dotnet add package Security.Claims --version 1.0.0 --source LocalFeed
 ```
 
 ### Option 2: Direct Package Reference
@@ -81,8 +81,8 @@ In your test project's `.csproj`:
 
 ```xml
 <ItemGroup>
-  <PackageReference Include="OnlineMenu.Security" Version="1.0.0">
-    <Source>C:\path\to\OnlineMenu.Security\artifacts\OnlineMenu.Security.1.0.0.nupkg</Source>
+  <PackageReference Include="Security.Claims" Version="1.0.0">
+    <Source>C:\path\to\Security.Claims\artifacts\Security.Claims.1.0.0.nupkg</Source>
   </PackageReference>
 </ItemGroup>
 ```
@@ -93,15 +93,15 @@ In your test project's `.csproj`:
 
 1. Go to https://www.nuget.org/account/apikeys
 2. Click **Create**
-3. Provide a key name (e.g., "OnlineMenu.Security")
+3. Provide a key name (e.g., "Security.Claims")
 4. Select **Push** scope
-5. Select packages or glob pattern (e.g., `OnlineMenu.Security*`)
+5. Select packages or glob pattern (e.g., `Security.Claims*`)
 6. Copy the generated API key
 
 ### Step 2: Publish
 
 ```bash
-dotnet nuget push ./artifacts/OnlineMenu.Security.1.0.0.nupkg \
+dotnet nuget push ./artifacts/Security.Claims.1.0.0.nupkg \
   --api-key YOUR_API_KEY \
   --source https://api.nuget.org/v3/index.json
 ```
@@ -111,7 +111,7 @@ dotnet nuget push ./artifacts/OnlineMenu.Security.1.0.0.nupkg \
 ### Step 3: Wait for Indexing
 
 NuGet.org takes 5-15 minutes to index new packages. You can monitor the status at:
-https://www.nuget.org/packages/OnlineMenu.Security
+https://www.nuget.org/packages/Security.Claims
 
 ## 🔄 Version Management
 
@@ -216,7 +216,7 @@ Before publishing, inspect what's in your package:
 
 ```bash
 # Extract .nupkg (it's a zip file)
-unzip OnlineMenu.Security.1.0.0.nupkg -d extracted/
+unzip Security.Claims.1.0.0.nupkg -d extracted/
 
 # View contents
 ls -R extracted/
@@ -241,7 +241,7 @@ If you're contributing to this package:
 If you try to publish the same version twice:
 
 ```
-error: Response status code does not indicate success: 409 (Conflict - The feed already contains 'OnlineMenu.Security' version '1.0.0'.)
+error: Response status code does not indicate success: 409 (Conflict - The feed already contains 'Security.Claims' version '1.0.0'.)
 ```
 
 **Solution:** Increment the version number. NuGet.org doesn't allow republishing the same version.
@@ -276,9 +276,9 @@ Make sure symbols are enabled in `Directory.Build.props`:
 
 ## 💬 Support
 
-- 🐛 **Issues**: [GitHub Issues](https://github.com/yourusername/OnlineMenu.Security/issues)
-- 💬 **Discussions**: [GitHub Discussions](https://github.com/yourusername/OnlineMenu.Security/discussions)
-- 📦 **NuGet**: [NuGet Package Page](https://www.nuget.org/packages/OnlineMenu.Security)
+- 🐛 **Issues**: [GitHub Issues](https://github.com/yourusername/Security.Claims/issues)
+- 💬 **Discussions**: [GitHub Discussions](https://github.com/yourusername/Security.Claims/discussions)
+- 📦 **NuGet**: [NuGet Package Page](https://www.nuget.org/packages/Security.Claims)
 
 ---
 
