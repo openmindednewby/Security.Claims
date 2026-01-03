@@ -29,11 +29,18 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Related Packages
 
-- [OnlineMenu.DomainCore](https://www.nuget.org/packages/OnlineMenu.DomainCore)
-- [Security.Claims](https://www.nuget.org/packages/Security.Claims)
-- [OnlineMenu.MultiTenancy.EntityFrameworkCore](https://www.nuget.org/packages/OnlineMenu.MultiTenancy.EntityFrameworkCore)
+- [DomainCore](https://www.nuget.org/packages/DomainCore)
+- [MultiTenancy.EntityFrameworkCore](https://www.nuget.org/packages/MultiTenancy.EntityFrameworkCore)
 
 ## Support
 
 - Issues: [GitHub Issues](https://github.com/yourusername/Security.Claims/issues)
 - Discussions: [GitHub Discussions](https://github.com/yourusername/Security.Claims/discussions)
+
+## How to Publish
+
+```bash
+cd C:\desktopContents\projects\SaaS\NuGetPackages\Security.Claims
+.\publish.ps1 -ApiKey XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -Bump major
+.\publish.ps1 -ApiKey XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -Bump minor
+```
