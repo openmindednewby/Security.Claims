@@ -13,7 +13,7 @@ This guide explains how to build, pack, and publish this NuGet package.
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/Security.Claims.git
+git clone https://github.com/openmindednewby/Security.Claims.git
 cd Security.Claims
 ```
 
@@ -276,8 +276,8 @@ Make sure symbols are enabled in `Directory.Build.props`:
 
 ## 💬 Support
 
-- 🐛 **Issues**: [GitHub Issues](https://github.com/yourusername/Security.Claims/issues)
-- 💬 **Discussions**: [GitHub Discussions](https://github.com/yourusername/Security.Claims/discussions)
+- 🐛 **Issues**: [GitHub Issues](https://github.com/openmindednewby/Security.Claims/issues)
+- 💬 **Discussions**: [GitHub Discussions](https://github.com/openmindednewby/Security.Claims/discussions)
 - 📦 **NuGet**: [NuGet Package Page](https://www.nuget.org/packages/Security.Claims)
 
 ---
