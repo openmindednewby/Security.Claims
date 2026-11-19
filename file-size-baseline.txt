@@ -1,0 +1,2 @@
+tests/Security.Claims.Tests/Claims/ClaimsPrincipalExtensionsTests.cs 408
+tests/Security.Claims.Tests/Claims/RealmExtensionsTests.cs 325
