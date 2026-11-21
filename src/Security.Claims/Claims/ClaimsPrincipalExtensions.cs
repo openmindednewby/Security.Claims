@@ -104,14 +104,24 @@ public static class ClaimsPrincipalExtensions
     /// </summary>
     /// <param name="user">The claims principal representing the user.</param>
     /// <returns>True if the user can manage users; otherwise, false.</returns>
+    [Obsolete("Trusts a superUser role from any realm. Use CanManageUsers(platformRealm).")]
     public static bool CanManageUsers(this ClaimsPrincipal user) =>
       user.IsInRole(OnlineMenuRoles.ManageUsers) || user.IsInRole(OnlineMenuRoles.SuperUser);
+
+    /// <summary>True for the ManageUsers role, or super user from <paramref name="platformRealm"/>.</summary>
+    public static bool CanManageUsers(this ClaimsPrincipal user, string platformRealm) =>
+      user.IsInRole(OnlineMenuRoles.ManageUsers) || user.IsSuperUser(platformRealm);
 
     /// <summary>
     /// Checks if the user has view users capability.
     /// </summary>
     /// <param name="user">The claims principal representing the user.</param>
     /// <returns>True if the user can view users; otherwise, false.</returns>
+    [Obsolete("Trusts a superUser role from any realm. Use CanViewUsers(platformRealm).")]
     public static bool CanViewUsers(this ClaimsPrincipal user) =>
       user.IsInRole(OnlineMenuRoles.ViewUsers) || user.IsInRole(OnlineMenuRoles.SuperUser);
+
+    /// <summary>True for the ViewUsers role, or super user from <paramref name="platformRealm"/>.</summary>
+    public static bool CanViewUsers(this ClaimsPrincipal user, string platformRealm) =>
+      user.IsInRole(OnlineMenuRoles.ViewUsers) || user.IsSuperUser(platformRealm);
 }
