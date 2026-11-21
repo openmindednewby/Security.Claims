@@ -82,8 +82,14 @@ public static class ClaimsPrincipalExtensions
     /// </summary>
     /// <param name="user">The claims principal representing the user.</param>
     /// <returns>True if the user is a super user; otherwise, false.</returns>
+    [Obsolete("Trusts a superUser role from any realm. Use IsSuperUser(platformRealm).")]
     public static bool IsSuperUser(this ClaimsPrincipal user) =>
       user.IsInRole(OnlineMenuRoles.SuperUser);
+
+    /// <summary>True only for the super user role in a token from <paramref name="platformRealm"/>.</summary>
+    /// <returns>False when the realm differs, is missing, or <paramref name="platformRealm"/> is empty.</returns>
+    public static bool IsSuperUser(this ClaimsPrincipal user, string platformRealm) =>
+      user.IsInRole(OnlineMenuRoles.SuperUser) && user.IsFromRealm(platformRealm);
 
     /// <summary>
     /// Checks if the user has admin privileges.
@@ -99,7 +105,7 @@ public static class ClaimsPrincipalExtensions
     /// <param name="user">The claims principal representing the user.</param>
     /// <returns>True if the user can manage users; otherwise, false.</returns>
     public static bool CanManageUsers(this ClaimsPrincipal user) =>
-      user.IsInRole(OnlineMenuRoles.ManageUsers) || user.IsSuperUser();
+      user.IsInRole(OnlineMenuRoles.ManageUsers) || user.IsInRole(OnlineMenuRoles.SuperUser);
 
     /// <summary>
     /// Checks if the user has view users capability.
@@ -107,5 +113,5 @@ public static class ClaimsPrincipalExtensions
     /// <param name="user">The claims principal representing the user.</param>
     /// <returns>True if the user can view users; otherwise, false.</returns>
     public static bool CanViewUsers(this ClaimsPrincipal user) =>
-      user.IsInRole(OnlineMenuRoles.ViewUsers) || user.IsSuperUser();
+      user.IsInRole(OnlineMenuRoles.ViewUsers) || user.IsInRole(OnlineMenuRoles.SuperUser);
 }
